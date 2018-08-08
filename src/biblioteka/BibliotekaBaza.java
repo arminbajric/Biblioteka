@@ -389,8 +389,8 @@ public class BibliotekaBaza {
 			}
 		}
 	}
-	public void ispisiPozajmljivanja(int ID) throws SQLException
-	{
+
+	public void ispisiPozajmljivanja(int ID) throws SQLException {
 		String upit = "SELECT * FROM `pozajmljivanje` WHERE `korisnik_idKorisnik` = " + ID + "";
 		ResultSet rs = null;
 		Statement izjava;
@@ -409,7 +409,7 @@ public class BibliotekaBaza {
 				System.out.println("ID pozajmljivanja:" + rs.getInt("idPozajmljivanja"));
 				System.out.println("Id naslova:" + rs.getInt("Naslovi_idNaslovi"));
 				System.out.println("Datum pozajmljivanja:" + rs.getString("Datum_pozajmljivanja"));
-				
+
 				if (rs.getInt("Vraceno_na_vrijeme") == 1) {
 					System.out.println("Status:vraceno");
 					System.out.println("");
@@ -421,8 +421,8 @@ public class BibliotekaBaza {
 			}
 		}
 	}
-	public void ispisiInforacuna(int ID) throws SQLException
-	{
+
+	public void ispisiInforacuna(int ID) throws SQLException {
 		String upit = "SELECT * FROM `korisnik` WHERE `idKorisnik` = " + ID + "";
 		ResultSet rs = null;
 		Statement izjava;
@@ -435,12 +435,12 @@ public class BibliotekaBaza {
 			e.printStackTrace();
 		}
 		rs.next();
-		System.out.println("ID:"+rs.getInt("idKorisnik"));
-		System.out.println("Ime :"+rs.getString("Ime_korisnika"));
-		System.out.println("Prezime:"+rs.getString("Prezime_korisnika"));
-		System.out.println("Datum registracije:"+rs.getString("Datum_registracije"));
-		System.out.println("Broj uzetih knjiga:"+rs.getInt("Broj_pozajmljenih_knjiga"));
-		System.out.println("Broj vracenih knjiga:"+rs.getInt("Broj_vracenih_knjiga"));
+		System.out.println("ID:" + rs.getInt("idKorisnik"));
+		System.out.println("Ime :" + rs.getString("Ime_korisnika"));
+		System.out.println("Prezime:" + rs.getString("Prezime_korisnika"));
+		System.out.println("Datum registracije:" + rs.getString("Datum_registracije"));
+		System.out.println("Broj uzetih knjiga:" + rs.getInt("Broj_pozajmljenih_knjiga"));
+		System.out.println("Broj vracenih knjiga:" + rs.getInt("Broj_vracenih_knjiga"));
 		System.out.println("");
 	}
 }
