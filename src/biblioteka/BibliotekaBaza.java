@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class BibliotekaBaza {
+public class BibliotekaBaza implements Biblioteka{
 	final private String conString = "jdbc:mysql://localhost:3306/mydb?useLegacyDatetimeCode=false&serverTimezone=UTC";
 	private String userName = "root";
 	private String password;
@@ -15,13 +15,13 @@ public class BibliotekaBaza {
 
 	}
 
-	private Connection OpenConnection() throws SQLException {
+	 public Connection OpenConnection() throws SQLException {
 		Connection con;
 		con = DriverManager.getConnection(conString, userName, password);
 		return con;
 	}
 
-	public void addNewRow(String upit) {
+	public void executeSQL(String upit) {
 
 		try {
 			Connection con = this.OpenConnection();
@@ -67,32 +67,9 @@ public class BibliotekaBaza {
 
 	}
 
-	public void deleteRow(String upit) {
+	
 
-		try {
-			Connection con = this.OpenConnection();
-			Statement izjava = con.createStatement();
-			izjava.executeQuery(upit);
-		} catch (SQLException e) {
-
-			e.printStackTrace();
-		}
-
-	}
-
-	public void updateRow(String upit) {
-
-		try {
-			Connection con = this.OpenConnection();
-			Statement izjava = con.createStatement();
-			izjava.executeUpdate(upit);
-			System.out.println("Uspješno izvršeno!");
-		} catch (SQLException e) {
-
-			e.printStackTrace();
-		}
-
-	}
+	
 
 	public boolean checkUser(String upit) throws SQLException {
 		ResultSet rs = null;

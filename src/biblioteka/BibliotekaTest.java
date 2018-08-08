@@ -130,7 +130,7 @@ public class BibliotekaTest {
 							if (test.checkPozajmljivanje(idP)) {
 								upit = "UPDATE `pozajmljivanje` SET `Vraceno_na_vrijeme` = '1' WHERE `pozajmljivanje`.`idpozajmljivanja` ="
 										+ idP + "  AND `pozajmljivanje`.`Korisnik_idKorisnik` = " + ID + "";
-								test.updateRow(upit);
+								test.executeSQL(upit);
 								test.vratiKnjigu(ID, idP);
 
 							}
@@ -170,7 +170,7 @@ public class BibliotekaTest {
 				String prezime = unos().nextLine();
 				String query = "INSERT INTO `Korisnik` (`idKorisnik`, `Ime_korisnika`, `Prezime_korisnika`, `Datum_registracije`) VALUES (NULL, '"
 						+ ime + "', '" + prezime + "', '" + danasnjiDatum + "');";
-				korisnik.addNewRow(query);
+				korisnik.executeSQL(query);
 				korisnik.checkUserId(ime, prezime);
 				break;
 			case 3:
@@ -191,7 +191,7 @@ public class BibliotekaTest {
 						int idA = unos().nextInt();
 						upit = "INSERT INTO `naslovi` (`idNaslovi`, `Naziv_naslova`, `Datum_izdavanja`, `Zanr_naslova`,`Autor_idAutor`,`Dostupno`) VALUES (NULL, '"
 								+ nazivNaslova + "', '" + godinaIzdavanja + "', '" + zanr + "'," + idA + ",1);";
-						test.updateRow(upit);
+						test.executeSQL(upit);
 						break;
 					case 2:
 						test = new Naslov();
@@ -204,7 +204,7 @@ public class BibliotekaTest {
 						String bio = unos().nextLine();
 						upit = "INSERT INTO `autor` (`idAutor`, `Ime_autora`, `Prezime_autora`, `Biografija_autora`) VALUES (NULL, '"
 								+ imeA + "', '" + prezimeA + "', '" + bio + "');";
-						test.addNewRow(upit);
+						test.executeSQL(upit);
 						break;
 					case 3:
 						test = new Naslov();
