@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class BibliotekaBaza implements Biblioteka{
+public class BibliotekaBaza  {
 	final private String conString = "jdbc:mysql://localhost:3306/mydb?useLegacyDatetimeCode=false&serverTimezone=UTC";
 	private String userName = "root";
 	private String password;
@@ -15,7 +15,7 @@ public class BibliotekaBaza implements Biblioteka{
 
 	}
 
-	 public Connection OpenConnection() throws SQLException {
+	public Connection OpenConnection() throws SQLException {
 		Connection con;
 		con = DriverManager.getConnection(conString, userName, password);
 		return con;
@@ -66,10 +66,6 @@ public class BibliotekaBaza implements Biblioteka{
 		}
 
 	}
-
-	
-
-	
 
 	public boolean checkUser(String upit) throws SQLException {
 		ResultSet rs = null;
