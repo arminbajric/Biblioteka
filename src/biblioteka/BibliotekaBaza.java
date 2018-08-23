@@ -154,7 +154,7 @@ public class BibliotekaBaza  {
 			rs = izjava.executeQuery(upit);
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		rs.next();
@@ -183,7 +183,7 @@ public class BibliotekaBaza  {
 			izjava = con.createStatement();
 			rs = izjava.executeQuery(upit);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 		if (rs.first()) {
